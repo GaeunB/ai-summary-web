@@ -16,7 +16,7 @@ def key():
 	try:
 		# data = request.get_json(force=True)
 		# context = data['context']
-		# text
+		# test
 		context = ("현장을 아는 전문가"+
                 "코오롱생명과학에 입사한다면, 다음과 같은 계획을 바탕으로 해외영업 전문가로서 성장하겠습니다."+
                 " 먼저, 우선 내부 상황 전문가가 되겠습니다."+
