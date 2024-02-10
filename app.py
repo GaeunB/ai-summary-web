@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask import Flask,render_template,request, jsonify
 from flask_cors import CORS
-import os
 from ext import summarize_text
 
 app = Flask(__name__)
@@ -17,9 +16,9 @@ def key():
 	try:
 		data = request.get_json(force=True)
 		context = data['context']
+		#context에 관하여 추가해야할 것같다. 
 		keytext = summarize_text(context)
 		response = jsonify({'keytext': keytext})
-		
 
 	except Exception as e:
 		response = jsonify({'error': str(e)})	
@@ -28,4 +27,4 @@ def key():
 	
 
 if __name__ == '__main__':
-	app.run(debug=True)
+	app.run(host='127.0.0.1',port=5000,debug=True)

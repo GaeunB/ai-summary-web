@@ -170,17 +170,19 @@
 
       // Perform AJAX request to the server for text summarization
       $.ajax({
-        url: "http://127.0.0.1:5000/summarize", // Flask 서버 주소
+        url: "http://127.0.0.1:5000/key", // Flask 서버 주소
         type: 'POST',
         contentType: "application/json",
         data: JSON.stringify({ context:inputText }),
         success: function(response) {
-        // Update the summarized text area instead of appending new jumbotron
-        $('#newprinttext').html('<h3>Summarized Text is as follows</h3><p>' + response + '</p>');
+        // 서버 응답 성공 시 결과를 출력란에 표시
+        $('#newprinttext').text(response.keytext);
         console.log('success');
       },
         error: function(error) {
           console.log('Error:', error);
+          $("#newprinttext").text("답변을 가져오는 중 오류가 발생했습니다.");
+
     }
 });
     };

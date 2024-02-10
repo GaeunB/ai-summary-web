@@ -16,10 +16,10 @@ class OktTokenizer:
         tokens: List[str] = self.okt.phrases(text)
         return tokens
     
-def summarize_text(text: str, k: int = 3) -> List[str]:
+def summarize_text(text: str) -> List[str]:
     mytokenizer = OktTokenizer()
     textrank = TextRank(mytokenizer)
-    return textrank.summarize(text, k, verbose=False)
+    return textrank.summarize(text, 3, verbose=False)
 
 
 # if verbose = False, it returns a list
