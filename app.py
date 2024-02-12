@@ -15,10 +15,10 @@ cors = CORS(app)
 def index():
 	return render_template('index.html')
 
-#포괄적요약
+#general summarization
 summodel_path = 'model/model.pt'
 sum_model=get_sum_model(summodel_path)
-sum_model.load_state_dict(torch.load('model.pt'), strict=False)
+sum_model.load_state_dict(torch.load(summodel_path), strict=False)
 sum_model.eval()
 
 @app.route('/summarize', methods=['POST'])
@@ -27,6 +27,7 @@ def summarize():
     sumdata = data['context']
     summary = sum_model(sumdata)
     response = jsonify({'gsum': summary})
+    return response
 
 
 # keysentence extraction
