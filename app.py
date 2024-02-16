@@ -3,8 +3,8 @@ from flask import Flask,render_template,request, jsonify
 from flask_cors import CORS
 import torch
 from sum_model import get_sum_model
-from ext import textrank_summarize
-from qa_model import get_qa_model
+# from ext import textrank_summarize
+# from qa_model import get_qa_model
 
 app = Flask(__name__)
 
@@ -31,7 +31,7 @@ def summarize():
 
 
 # keysentence extraction
-@app.route('/key',methods=['POST'])
+'''@app.route('/key',methods=['POST'])
 def key():
 	try:
 		data = request.get_json(force=True)
@@ -42,10 +42,10 @@ def key():
 	except Exception as e:
 		response = jsonify({'error': str(e)})	
 		
-	return response
+	return response'''
 	
 #qa
-@app.route('/qa', methods=['POST'])
+'''@app.route('/qa', methods=['POST'])
 def qa_endpoint():
     try:
         data = request.get_json(force=True)
@@ -65,9 +65,9 @@ def qa_endpoint():
     except Exception as e:
         response = jsonify({'error': str(e)})
 
-    return response
+    return response'''
 
 if __name__ == '__main__':
-	model_path = 'model/checkpoint-1119-epoch-1'
-	qa_model = get_qa_model(model_path, use_cuda=False)
+	# model_path = 'model/checkpoint-1119-epoch-1'
+	# qa_model = get_qa_model(model_path, use_cuda=False)
 	app.run(host='127.0.0.1',port=5000,debug=True)
