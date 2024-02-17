@@ -39,7 +39,11 @@ app.py
 
 <br>ext.py
 - 중요문장 추출~
+- /code
 <br>qa_model.py
 - qa모델불러와서 단답형 대답
+- /code
 <br>gsum.py
 - kobart모델불러와서 포괄적 요약을 진행한다~
+/code
+
