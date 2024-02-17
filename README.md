@@ -26,7 +26,7 @@ Engine: k-, textrankr, kobart
 
 
 ## 기능_(간단)
-Generative Summarize: 간단하게 
+General Summarize: 간단하게 
 <br>Keysentence Extraction: 
 <br>Question Answering: 
 
