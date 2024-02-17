@@ -67,6 +67,7 @@
         border: 1px solid #ccc;
         border-radius: 4px;
         height: 75%;
+        font-size: 20px;
       }
       .qa {
         display: flex;
@@ -191,8 +192,9 @@
         var answer = "답변을 준비하는 중 입니다.."; // 수정 필요
 
         // Perform AJAX request to the server for text summarization
+        $("#newprinttext").text(answer);
         $.ajax({
-          url: "http://127.0.0.1:5000/summarize", // Flask 서버 주소
+          url: "http://127.0.0.1:5000/gsummarize", // Flask 서버 주소
           type: "POST",
           contentType: "application/json",
           data: JSON.stringify({ context: inputText }),

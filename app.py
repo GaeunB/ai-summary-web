@@ -2,7 +2,7 @@
 from flask import Flask,render_template,request, jsonify
 from flask_cors import CORS
 import torch
-from sum_model import get_sum_model
+from sum_model import summarize_model
 from ext import textrank_summarize
 from qa_model import get_qa_model
 
@@ -16,13 +16,17 @@ def index():
 	return render_template('index.html')
 
 
-# @app.route('/summarize', methods=['POST'])
-# def summarize():
-#     data = request.get_json(force=True)
-#     sumdata = data['context']
-#     summary = sum_model(sumdata)
-#     response = jsonify({'gsum': summary})
-#     return response
+@app.route('/gsummarize', methods=['POST'])
+def gsummarize():
+	try:
+		data = request.get_json(force=True)
+		context = data['context']
+		gsum = summarize_model(context)
+		response = jsonify({'gsum': gsum})
+
+	except Exception as e:
+		response = jsonify({'error': str(e)})	
+	return response
 
 
 # keysentence extraction
