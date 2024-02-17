@@ -33,9 +33,13 @@ Generative Summarize: 간단하게
  
 ## Code Architecture
 app.py
+- app.py 에서는 엔진을 초기 세팅하고, flask 서버 설정을 통해 프론트와 통신을 할 수 있도록 한다. 엔진에서 가장 중점으로 실행되는 코드 파일이며, 백엔드에서 요청이 들어올 경우, 그에 맞는 작업을 수행하여 처리한다.
+- 다음 코드는 app이라는 Flask 변수를 생성한다.
+/code
+
 <br>ext.py
+- 중요문장 추출~
 <br>qa_model.py
+- qa모델불러와서 단답형 대답
 <br>gsum.py
-
-
-
+- kobart모델불러와서 포괄적 요약을 진행한다~
