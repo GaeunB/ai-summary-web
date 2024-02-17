@@ -15,19 +15,14 @@ cors = CORS(app)
 def index():
 	return render_template('index.html')
 
-#general summarization
-summodel_path = 'model/model.pt'
-sum_model=get_sum_model(summodel_path)
-sum_model.load_state_dict(torch.load(summodel_path), strict=False)
-sum_model.eval()
 
-@app.route('/summarize', methods=['POST'])
-def summarize():
-    data = request.get_json(force=True)
-    sumdata = data['context']
-    summary = sum_model(sumdata)
-    response = jsonify({'gsum': summary})
-    return response
+# @app.route('/summarize', methods=['POST'])
+# def summarize():
+#     data = request.get_json(force=True)
+#     sumdata = data['context']
+#     summary = sum_model(sumdata)
+#     response = jsonify({'gsum': summary})
+#     return response
 
 
 # keysentence extraction
@@ -70,4 +65,11 @@ def qa_endpoint():
 if __name__ == '__main__':
 	model_path = 'model/checkpoint-1119-epoch-1'
 	qa_model = get_qa_model(model_path, use_cuda=False)
+	
+    # general summarization
+    # summodel_path = 'model/model.pt'
+    # sum_model=get_sum_model(summodel_path)
+    # sum_model.load_state_dict(torch.load(summodel_path), strict=False)
+    # sum_model.eval()
+
 	app.run(host='127.0.0.1',port=5000,debug=True)
