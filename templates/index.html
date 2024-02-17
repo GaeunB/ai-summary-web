@@ -34,6 +34,7 @@
         border-radius: 8px;
         background-color: #fff;
         margin-right: 5px;
+        overflow: auto;
       }
       .right-box {
         flex: 1;
@@ -52,6 +53,15 @@
         background-color: #fff;
       }
       .box1 {
+        flex: 3;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #fff;
+        margin-bottom: 10px;
+        overflow: auto;
+      }
+      .box2 {
         flex: 1;
         padding: 15px;
         border: 1px solid #ccc;
@@ -68,6 +78,12 @@
         border-radius: 4px;
         height: 75%;
         font-size: 20px;
+      }
+      .key {
+        flex: 1;
+        display: flex;
+        height: 50px;
+        margin-bottom: 10px;
       }
       .qa {
         display: flex;
@@ -112,12 +128,25 @@
         <button class="sum_button" onclick="Summarize()">요약하기</button>
       </div>
 
-      <!-- 오른쪽 박스 (세로로 2개) -->
+      <!-- 오른쪽 박스 (세로로 3개) -->
       <div class="right-box">
+        <!-- General extraction -->
         <div class="box1">
           <h2>요약 결과</h2>
           <p id="newprinttext"></p>
         </div>
+
+        <!-- Keysentence-extraction -->
+        <div class="box2">
+          <div class="key">
+            <h2>중요문장 추출</h2>
+            <button class="small_button" onclick="keysentence()">
+              추출하기
+            </button>
+          </div>
+          <p id="keySentenceText"></p>
+        </div>
+
         <!-- QA BOX -->
         <div class="box">
           <div class="qa">
@@ -177,12 +206,14 @@
           data: JSON.stringify({ context: inputText }),
           success: function (response) {
             // 서버 응답 성공 시 결과를 출력란에 표시
-            $("#newprinttext").text(response.keytext);
+            $("keySentenceText").text(response.keytext);
             console.log("success");
           },
           error: function (error) {
             console.log("Error:", error);
-            $("#newprinttext").text("답변을 가져오는 중 오류가 발생했습니다.");
+            $("#keySentenceText").text(
+              "답변을 가져오는 중 오류가 발생했습니다."
+            );
           },
         });
       }
