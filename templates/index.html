@@ -198,6 +198,8 @@
         var inputText = $("#inputText").val();
         var answer = "답변을 준비하는 중 입니다.."; // 수정 필요
 
+        $("#keySentenceText").text(answer);
+        
         // Perform AJAX request to the server for text summarization
         $.ajax({
           url: "http://127.0.0.1:5000/key", // Flask 서버 주소

@@ -46,25 +46,28 @@ def key():
 #qa
 @app.route('/qa', methods=['POST'])
 def qa_endpoint():
-    try:
-        data = request.get_json(force=True)
+	try:
+		data = request.get_json(force=True)
 
-        context = data['context']
-        question = data['question']
+		context = data['context']
+		question = data['question']
+		if question == "":
+			response = jsonify({'error': '질문을 입력해주세요.'})
+			return response
 
-        to_predict = [{"context": context, "qas": [{"question": question, "id": "0"}]}]
-        
-        result = qa_model.predict(to_predict)
+		to_predict = [{"context": context, "qas": [{"question": question, "id": "0"}]}]
 
-        answer = result[0][0]['answer'][0]
-        answer = "적절한 답변을 찾을 수 없습니다." if answer == '' else answer
+		result = qa_model.predict(to_predict)
 
-        response = jsonify({'answer': answer})
-        
-    except Exception as e:
-        response = jsonify({'error': str(e)})
+		answer = result[0][0]['answer'][0]
+		answer = "적절한 답변을 찾을 수 없습니다." if answer == '' else answer
 
-    return response
+		response = jsonify({'answer': answer})
+
+	except Exception as e:
+		response = jsonify({'error': str(e)})
+
+	return response
 
 if __name__ == '__main__':
 	model_path = 'model/checkpoint-1119-epoch-1'
