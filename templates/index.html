@@ -208,7 +208,7 @@
           data: JSON.stringify({ context: inputText }),
           success: function (response) {
             // 서버 응답 성공 시 결과를 출력란에 표시
-            $("keySentenceText").text(response.keytext);
+            $("#keySentenceText").text(response.keytext);
             console.log("success");
           },
           error: function (error) {
