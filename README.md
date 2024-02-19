@@ -10,7 +10,7 @@
 
 
 ## Architecture
-Frontend: Svelte.js
+Frontend: HTML,CSS,JS
 <br>(프론트 캡쳐 화면)
 <br>Engine: KorQuAD, textrankr, kobart
 <br>(전반적인 도식화)
