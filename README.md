@@ -1,5 +1,5 @@
 # 자소서 요약 페이지
-팀원: 변가은, 김지환, 남경현, 이대헌, 이성민, 최민재<br>
+팀원: 변가은, 김지환, 남경헌, 이대헌, 이성민, 최민재<br>
 [Notion](https://jungle-crane-580.notion.site/27be448bebcb4ca39ac9182033d7a293?pvs=4)
 
 <br>
