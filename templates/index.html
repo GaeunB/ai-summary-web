@@ -74,7 +74,7 @@
         var inputText = $("#inputText").val();
         var question = $("#questionInput").val();
         // 여기에서 질문에 대한 답변 알고리즘을 적용하거나 API를 호출하여 답변을 가져온다.
-        var answer = "답변을 준비하는 중 입니다.."; // 수정 필요
+        var answer = "답변을 준비하는 중 입니다.."; 
 
         // 답변을 출력란에 표시
         $("#qaOutputText").text(answer);
@@ -148,6 +148,7 @@
       }
     </script>
   </body>
+
   <style>
     body {
       font-family:  sans-serif, 'Arial';
@@ -173,6 +174,7 @@
     .left-box {
       flex: 1;
       padding: 15px;
+      padding-bottom: 5px;
       /* border: 2px solid #ccc; */
       box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
       border-radius: 8px;
@@ -192,6 +194,7 @@
     .box {
       flex: 1;
       padding: 15px;
+      padding-bottom: 5px;
       /* border: 2px solid #ccc; */
       border-radius: 8px;
       background-color: #fff;
@@ -200,6 +203,7 @@
     .box1 {
       flex: 3;
       padding: 15px;
+      padding-bottom: 5px;
       /* border: 2px solid #ccc; */
       border-radius: 8px;
       background-color: #fff;
@@ -210,6 +214,7 @@
     .box2 {
       flex: 1;
       padding: 15px;
+      padding-bottom: 5px;
       /* border: 2px solid #ccc; */
       box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
       border-radius: 8px;
@@ -255,7 +260,7 @@
       width: 25%;
     }
     .qa_text {
-      height: 50%;
+      height: 40%;
     }
    
   </style>

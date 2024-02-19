@@ -40,7 +40,7 @@ def key():
 	try:
 		data = request.get_json(force=True)
 		context = data['context']
-		keytext = textrank_summarize(context,2)
+		keytext = textrank_summarize(context,1) #문장 수 조절 필요
 		response = jsonify({'keytext': keytext})
 
 	except Exception as e:
