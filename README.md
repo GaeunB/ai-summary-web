@@ -17,14 +17,14 @@ Engine: KorQuAD, textrankr, kobart
 
 
 
-## Model
+## Engine
 ### kobart (원리)
 
 
 ### textrankr (원리)
 
 
-### qa모델 (원리)
+### qa 모델 (원리)
 
 
 
