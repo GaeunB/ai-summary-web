@@ -11,9 +11,9 @@
 
 ## Architecture
 Frontend: Svelte.js
-(프론트 캡쳐 화면)
+<br>(프론트 캡쳐 화면)
 Engine: KorQuAD, textrankr, kobart
-(전반적인 도식화)
+<br>(전반적인 도식화)
 
 
 
