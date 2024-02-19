@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Resume Summary</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css" />
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700|Roboto:400,700&display=swap" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- responsive style -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+          <a class="navbar-brand" href="index.html">
+            <img src="../static/images/logo.png" alt="" />
+            
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="user_option">
+              <form class="form-inline my-2 my-lg-0">
+                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+              </form>
+            </div>
+          </div>
+          <div class="call_btn">
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+
+    <section class="slider_section">
+      <div class="container-fluid">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-md-3 col-lg-2 offset-md-2">
+                  <div class="detail-box">
+                    <h1>
+                      Resume Summary
+                    </h1>
+                    <p>
+                      Our summary page offers a concise overview of the applicant's resume, allowing you to easily grasp key experiences and achievements.
+                    </p>
+                    <div>
+                      <a href="http://127.0.0.1:5000/sum">
+                        Summarize!
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="imgp col-md-7 col-lg-8">
+                  <div class="img-box">
+                    <img src="../static/images/bg1.png" alt="PROMETHEUS" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+  </div>
+  <!-- footer section -->
+  <footer class="container-fluid footer_section">
+    <p>
+      변가은, 김지환, 남경현, 이대헌, 이성민, 최민재
+    </p>
+  </footer>
+  <!-- footer section -->
+  <script src="../static/js/jquery-3.4.1.min.js"></script>
+  <script src="../static/js/bootstrap.js"></script>
+  <script src="../static/js/circles.min.js"></script>
+  <script src="../static/js/custom.js"></script>
+</body>
+</html>

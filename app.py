@@ -12,11 +12,16 @@ cors = CORS(app)
 
 #home
 @app.route('/')	
+def home():
+	return render_template('home.html')
+
+#summary page
+@app.route('/sum')	
 def index():
 	return render_template('index.html')
 
-
-@app.route('/gsummarize', methods=['POST'])
+#general summarization
+@app.route('/sum/gsummarize', methods=['POST'])
 def gsummarize():
 	try:
 		data = request.get_json(force=True)
@@ -30,7 +35,7 @@ def gsummarize():
 
 
 # keysentence extraction
-@app.route('/key',methods=['POST'])
+@app.route('/sum/key',methods=['POST'])
 def key():
 	try:
 		data = request.get_json(force=True)
@@ -44,7 +49,7 @@ def key():
 	return response
 	
 #qa
-@app.route('/qa', methods=['POST'])
+@app.route('/sum/qa', methods=['POST'])
 def qa_endpoint():
 	try:
 		data = request.get_json(force=True)

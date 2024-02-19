@@ -169,8 +169,8 @@
       function askQuestion() {
         var inputText = $("#inputText").val();
         var question = $("#questionInput").val();
-        // 여기에서 질문에 대한 답변 알고리즘을 적용하거나 API를 호출하여 답변을 가져온다.
-        var answer = "답변을 준비하는 중 입니다.."; // 수정 필요
+       
+        var answer = "답변을 준비하는 중 입니다.."; 
 
         // 답변을 출력란에 표시
         $("#qaOutputText").text(answer);
@@ -196,7 +196,7 @@
       //keysentence 추출
       function keysentence() {
         var inputText = $("#inputText").val();
-        var answer = "답변을 준비하는 중 입니다.."; // 수정 필요
+        var answer = "답변을 준비하는 중 입니다.."; 
 
         $("#keySentenceText").text(answer);
         
@@ -222,7 +222,7 @@
 
       function Summarize() {
         var inputText = $("#inputText").val();
-        var answer = "답변을 준비하는 중 입니다.."; // 수정 필요
+        var answer = "답변을 준비하는 중 입니다.."; 
 
         // Perform AJAX request to the server for text summarization
         $("#newprinttext").text(answer);
