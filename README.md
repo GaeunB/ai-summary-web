@@ -31,22 +31,19 @@ BART(Bidirectional and Auto-Regressive Transformers)는 입력 텍스트 일부�
 이를 통해 도출된 KoBART-base를 배포합니다. 
 한국어 위키 백과 이외, 뉴스, 책, 모두의 말뭉치 v1.0(대화, 뉴스, ...), 청와대 국민청원 등의 다양한 데이터가 모델 학습에 사용되었습니다.
 
-KoBART란 페이스북에서 공개한 BART모델을 SKT에서 40GB이상의 한국어 텍스트로 사전 학습시킨 모델이다.
-BART는 seq2seq 모델을 사전학습하기 위한 denoising autoencoder(DAE, 잡음제거 오토 인코더)로, 임의의 noising function으로 텍스트를 손상시킨 후 모델이 원본 텍스트를 재구축하는 방식으로 학습이 진행된다.
+KoBART란 페이스북에서 공개한 BART모델을 SKT에서 40GB이상의 한국어 텍스트로 사전 학습시킨 모델이다.<br /> 
+BART는 seq2seq 모델을 사전학습하기 위한 denoising autoencoder(DAE, 잡음제거 오토 인코더)로, 임의의 noising function으로 텍스트를 손상시킨 후 모델이 원본 텍스트를 재구축하는 방식으로 학습이 진행된다.<br /> 
 BART는 기존 BERT모델과 GPT를 합친 구조를 가지고 있는데, 이로 인해 BERT의 Bidirectional 특징과 GPT의 Auto-Regressive한 특징을 모두 가진다. 덕분에 BART는 기존 MLM모델들에 비해 다양한 분야에서 높은 활용성을 나타낸다. 
-![image](https://github.com/GaeunB/ai-summary-web/assets/118701576/f2e5c8e6-cedc-4ccf-b9f2-90f6ccc25501) 
-
-Fig.1 Bart구조
-
+![image](https://github.com/GaeunB/ai-summary-web/assets/118701576/f2e5c8e6-cedc-4ccf-b9f2-90f6ccc25501) <br /> 
+Fig.1 Bart구조<br /> 
 BART는 손상된 Text를 입력으로 받아 Bidirectional 모델로 encoding하고 정답 Text에 대한 likelihood를 autoregressive 모델로 decoding하여 계산한다. 
 BART에서는 다음과 같은 5가지 noising 기법이 존재한며, 이를 통해 손상된 Text를 얻는다.
-![image](https://github.com/GaeunB/ai-summary-web/assets/118701576/d4db2cc4-2686-40e3-b4dd-38312d0c3ff1) 
-Fig.2 Noising기법
-
+![image](https://github.com/GaeunB/ai-summary-web/assets/118701576/d4db2cc4-2686-40e3-b4dd-38312d0c3ff1) <br /> 
+Fig.2 Noising기법<br /> 
 BART는 자기회귀 디코더를 갖기 때문에, abstractive QA와 summarization과 같은 시퀀스 일반화(Sequence Generation) 태스크에 직접적으로 파인튜닝 될 수 있다. 이번 프로젝트에서는 이력서 요약 기능을 수행하기 위해 KoBART모델에 채용면접 데이터로 파인튜닝을 진행하였다.(데이터셋: https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=realm&dataSetSn=71592) 
 
-참고문헌
-[1] Mike Lewis외(2019), "BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension", ACL
+참고문헌 <br /> 
+[1] Mike Lewis외(2019), "BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension", ACL <br /> 
 [2] 수다르산 라비찬디란(2021), "구글 BERT의 정석", 한빛미디어
 
 
