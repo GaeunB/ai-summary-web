@@ -31,7 +31,7 @@ BART(Bidirectional and Auto-Regressive Transformers)는 입력 텍스트 일부�
 이를 통해 도출된 KoBART-base를 배포합니다. 
 한국어 위키 백과 이외, 뉴스, 책, 모두의 말뭉치 v1.0(대화, 뉴스, ...), 청와대 국민청원 등의 다양한 데이터가 모델 학습에 사용되었습니다.
 
-KoBART란 페이스북에서 공개한 BART모델을 SKT에서 40GB이상의 한국어 텍스트로 사전 학습시킨 모델이다. (오픈소스 모델: KoBARThttps://github.com/SKT-AI/KoBART)
+KoBART란 페이스북에서 공개한 BART모델을 SKT에서 40GB이상의 한국어 텍스트로 사전 학습시킨 모델이다.
 BART는 seq2seq 모델을 사전학습하기 위한 denoising autoencoder(DAE, 잡음제거 오토 인코더)로, 임의의 noising function으로 텍스트를 손상시킨 후 모델이 원본 텍스트를 재구축하는 방식으로 학습이 진행된다.
 BART는 기존 BERT모델과 GPT를 합친 구조를 가지고 있는데, 이로 인해 BERT의 Bidirectional 특징과 GPT의 Auto-Regressive한 특징을 모두 가진다. 덕분에 BART는 기존 MLM모델들에 비해 다양한 분야에서 높은 활용성을 나타낸다. 
 ![image](https://github.com/GaeunB/ai-summary-web/assets/118701576/f2e5c8e6-cedc-4ccf-b9f2-90f6ccc25501)
