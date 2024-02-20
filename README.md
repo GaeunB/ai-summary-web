@@ -19,6 +19,17 @@ Frontend: HTML,CSS,JS
 
 ## Engine
 #### ✅ kobart (원리)
+https://github.com/SKT-AI/KoBART <br /> 
+BART(Bidirectional and Auto-Regressive Transformers)는 입력 텍스트 일부에 노이즈를 추가하여 이를 다시 원문으로 복구하는 autoencoder의 형태로 학습이 됩니다.<br /> 
+![image](https://github.com/Oneourbefore/ai-summary-web/assets/102707496/68021f7e-9981-4a97-9ae3-b3e6ff830132)
+1. Bart는 Transformer의 기본 아키텍처인 Encoder-Decoder구조를 갖고 있다.
+2. 따라서 코드도 Encoder와 Decoder를 차례로 통과한다.
+3. Input data도 Encoder_input과 Decoder_input을 따로 준비해야한다.
+4. 어떻게 input을 넣어주냐에 따라 Task마다 학습/추론 방법이 갈린다.
+
+한국어 BART는 논문에서 사용된 Text Infilling 노이즈 함수를 사용하여 40GB 이상의 한국어 텍스트에 대해서 학습한 한국어 encoder-decoder 언어 모델입니다. <br /> 
+이를 통해 도출된 KoBART-base를 배포합니다. 
+한국어 위키 백과 이외, 뉴스, 책, 모두의 말뭉치 v1.0(대화, 뉴스, ...), 청와대 국민청원 등의 다양한 데이터가 모델 학습에 사용되었습니다.
 
 
 #### ✅ textrankr (원리)
