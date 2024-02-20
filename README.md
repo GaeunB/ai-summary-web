@@ -35,6 +35,7 @@ KoBART란 페이스북에서 공개한 BART모델을 SKT에서 40GB이상의 한
 BART는 seq2seq 모델을 사전학습하기 위한 denoising autoencoder(DAE, 잡음제거 오토 인코더)로, 임의의 noising function으로 텍스트를 손상시킨 후 모델이 원본 텍스트를 재구축하는 방식으로 학습이 진행된다.
 BART는 기존 BERT모델과 GPT를 합친 구조를 가지고 있는데, 이로 인해 BERT의 Bidirectional 특징과 GPT의 Auto-Regressive한 특징을 모두 가진다. 덕분에 BART는 기존 MLM모델들에 비해 다양한 분야에서 높은 활용성을 나타낸다. 
 ![image](https://github.com/GaeunB/ai-summary-web/assets/118701576/f2e5c8e6-cedc-4ccf-b9f2-90f6ccc25501) 
+
 Fig.1 Bart구조
 
 BART는 손상된 Text를 입력으로 받아 Bidirectional 모델로 encoding하고 정답 Text에 대한 likelihood를 autoregressive 모델로 decoding하여 계산한다. 
