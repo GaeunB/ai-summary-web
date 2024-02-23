@@ -124,9 +124,9 @@ PageRank 알고리즘은 수집된 인터넷 문서 각각을 그래프의 노�
 
 QA 작업은 주어진 질문과 문맥을 이해하여 답변을 제시하는 것이 목표인데, 답변을 찾는 방식에 따라 추출형(extractive), 추상형(abstractive) 으로 나뉜다. 문장 내에서 질문에 해당하는 답변을 찾아내는지 / 주어진 질문에 대한 답변을 직접 생성하는 방식의 차이이다. QA 작업을 진행하기 위해, 구글에서 개발한 NLP 처리 모델인 BERT 모델을 활용하였다. 
 
-BERT 모델은 사전 훈련 언어 모델로서, 특정 분야에 국한된 기술이 아니라 모든 자연어 처리 분야에서 좋은 성능을 내는 범용 Language Model이다. Transformer architerture에서 encoder만 사용한다는 특징이 있다.구조는 다음과 같다.<br/ >
+BERT 모델은 사전 훈련 언어 모델로서, 특정 분야에 국한된 기술이 아니라 모든 자연어 처리 분야에서 좋은 성능을 내는 범용 Language Model이다. Transformer architerture에서 encoder만 사용한다는 특징이 있다.구조는 다음과 같다.
 
-####1. Input 
+##### 1. Input 
 
 ![image](https://github.com/GaeunB/ai-summary-web/assets/145184645/fdf376d2-bda1-43b5-8341-f290b3a490c9){: width="100" height="100"}
 
@@ -135,7 +135,7 @@ Input은 Token Embedding + Segment Embedding + Position Embedding 3가지 임베
 -Segment Embedding : Sentence Embedding으로, 토큰 시킨 단어들을 다시 하나의 문장으로 만드는 작업이다. 구분자 [SEP] 를 통해 문장을 구분하고 두 문장을 하나의 Segment 로 지정한다. 
 -Position Embedding : 입력 토큰의 위치 정보를 고려하지 않고, 토큰 순서대로 인코딩한다. 
 
-####2. Pre-Training
+##### 2. Pre-Training
 
 ![image](https://github.com/GaeunB/ai-summary-web/assets/145184645/56f14403-b877-4de7-b0a3-5278a01910b0){: width="100" height="100"}
 
@@ -143,7 +143,7 @@ Input은 Token Embedding + Segment Embedding + Position Embedding 3가지 임베
 
 -NSP(Next Sentence Prediction) : 두 문장이 주어졌을 때, 두 문장의 순서를 예측하는 방식이다. 두 문장 간 관련이 고려되야 하는 NLI와 QA의 파인 튜닝을 위해 두 문장의 연관을 맞추는 학습을 진행한다.
 
-3. Fine-tuning
+#### 3. Fine-tuning
 
 ![image](https://github.com/GaeunB/ai-summary-web/assets/145184645/100973f4-d8ea-4ac3-bc8e-b014a0a45e56){: width="100" height="100"}
 
@@ -155,15 +155,12 @@ BERT 기반 QA 모델은 크게 두 가지 접근 방식을 사용한다.
 본 프로젝트에서는 question과 reference를 동시에 input 으로 사용하여 extractive question answering 모델을 구성하였다.
 ![image](https://github.com/GaeunB/ai-summary-web/assets/145184645/4f0335a4-1310-46ac-a5be-55c3609d5b05)
 
-<br />
 <details><summary>참고문헌</summary>
 [1] 권세린, et al. "의료 관련 질의응답을 위한 BERT 기반 한국어 QA 모델." Proceedings of KIIT Conference. 2022. <br />
 [2] Devlin, Jacob, et al. "Bert: Pre-training of deep bidirectional transformers for language understanding." arXiv preprint arXiv:1810.04805 (2018). <br />
 [3] 송다연, 조상현, and 권혁철. "한국어 문법 QA 시스템을 위한 BERT 기반 시퀀스 분류모델." 한국정보과학회 학술발표논문집 (2021): 754-756. <br />
 </details>
 
-<br />
- 
 ## 📑 Code Architecture
 **✔️ `app.py`** <br />
 - `app.py` 에서는 엔진을 초기 세팅하고, flask 서버 설정을 통해 프론트와 통신을 할 수 있도록 한다. 엔진에서 가장 중점으로 실행되는 코드 파일이며, 백엔드에서 요청이 들어올 경우, 그에 맞는 작업을 수행하여 처리한다.
