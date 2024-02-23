@@ -137,7 +137,7 @@ Input은 Token Embedding + Segment Embedding + Position Embedding 3가지 임베
 
 ##### 2. Pre-Training
 
-![image](https://github.com/GaeunB/ai-summary-web/assets/145184645/56f14403-b877-4de7-b0a3-5278a01910b0){: width="100" height="100"}
+!<img src="https://github.com/GaeunB/ai-summary-web/assets/145184645/56f14403-b877-4de7-b0a3-5278a01910b0" width="50%" height="50%">
 
 -MLM(masked Language Model) : 입력 문장에서 임의로 토큰을 버리고(Mask) 그 토큰을 맞추는 방식으로 학습을 진행한다. 
 
