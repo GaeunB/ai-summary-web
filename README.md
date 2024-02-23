@@ -38,7 +38,11 @@
 ![랜딩페이지@3x height='200'](https://github.com/GaeunB/read_/assets/115343409/b701310c-9fda-4647-8f42-b9bd59d7c0c5)
 
 - **시연 영상**
-<br />
+  
+
+https://github.com/GaeunB/ai-summary-web/assets/115343409/4fbec8b1-dfdf-481b-84f3-ce0b61897943
+
+
 <br />
 
 ## 🚦 Main Fuctions
@@ -52,8 +56,6 @@
 	+ Kobart, Textrankr, Bert 
 + **Backend**: Flask <br />
 
-<br />전체 구조 및 작동 방식은 다음과 같다. 
-<br /> (다이어그램)
 ## 💾 Setting
 - **Install modules**
 ```bash
@@ -120,40 +122,40 @@ PageRank 알고리즘은 수집된 인터넷 문서 각각을 그래프의 노�
 
 
 #### ✅ Question Answering_Bert (원리)
--Question Answering model은 사용자로부터 받은 특정한 질의에 관련된 정답을 자연어로 자동으로 출력하는 시스템이다. [1] 
+- Question Answering model은 사용자로부터 받은 특정한 질의에 관련된 정답을 자연어로 자동으로 출력하는 시스템이다. [1] 
 
-QA 작업은 주어진 질문과 문맥을 이해하여 답변을 제시하는 것이 목표인데, 답변을 찾는 방식에 따라 추출형(extractive), 추상형(abstractive) 으로 나뉜다. 문장 내에서 질문에 해당하는 답변을 찾아내는지 / 주어진 질문에 대한 답변을 직접 생성하는 방식의 차이이다. QA 작업을 진행하기 위해, 구글에서 개발한 NLP 처리 모델인 BERT 모델을 활용하였다. 
+- QA 작업은 주어진 질문과 문맥을 이해하여 답변을 제시하는 것이 목표인데, 답변을 찾는 방식에 따라 추출형(extractive), 추상형(abstractive) 으로 나뉜다. 문장 내에서 질문에 해당하는 답변을 찾아내는지 / 주어진 질문에 대한 답변을 직접 생성하는 방식의 차이이다. QA 작업을 진행하기 위해, 구글에서 개발한 NLP 처리 모델인 BERT 모델을 활용하였다. 
 
-BERT 모델은 사전 훈련 언어 모델로서, 특정 분야에 국한된 기술이 아니라 모든 자연어 처리 분야에서 좋은 성능을 내는 범용 Language Model이다. Transformer architerture에서 encoder만 사용한다는 특징이 있다.구조는 다음과 같다.
+- BERT 모델은 사전 훈련 언어 모델로서, 특정 분야에 국한된 기술이 아니라 모든 자연어 처리 분야에서 좋은 성능을 내는 범용 Language Model이다. Transformer architerture에서 encoder만 사용한다는 특징이 있다.구조는 다음과 같다.
 
 ##### 1. Input 
 
-!<img src="https://github.com/GaeunB/ai-summary-web/assets/145184645/91693bf7-370d-4773-a82f-0af683a4ccdf" width="50%" height="50%">
+<img src="https://github.com/GaeunB/ai-summary-web/assets/145184645/91693bf7-370d-4773-a82f-0af683a4ccdf" width="50%" height="50%">
 
-Input은 Token Embedding + Segment Embedding + Position Embedding 3가지 임베딩을 결합한 방식으로 진행한다.
+- Input은 Token Embedding + Segment Embedding + Position Embedding 3가지 임베딩을 결합한 방식으로 진행한다.
 -Token Embedding : Word Piece 임베딩 방식을 사용한다. Char 단위로 임베딩 후 등장 빈도에 따라 sub-word 로 구분한다.
 -Segment Embedding : Sentence Embedding으로, 토큰 시킨 단어들을 다시 하나의 문장으로 만드는 작업이다. 구분자 [SEP] 를 통해 문장을 구분하고 두 문장을 하나의 Segment 로 지정한다. 
 -Position Embedding : 입력 토큰의 위치 정보를 고려하지 않고, 토큰 순서대로 인코딩한다. 
 
 ##### 2. Pre-Training
 
-!<img src="https://github.com/GaeunB/ai-summary-web/assets/145184645/56f14403-b877-4de7-b0a3-5278a01910b0" width="50%" height="50%">
+<img src="https://github.com/GaeunB/ai-summary-web/assets/145184645/56f14403-b877-4de7-b0a3-5278a01910b0" width="50%" height="50%">
 
--MLM(masked Language Model) : 입력 문장에서 임의로 토큰을 버리고(Mask) 그 토큰을 맞추는 방식으로 학습을 진행한다. 
+- MLM(masked Language Model) : 입력 문장에서 임의로 토큰을 버리고(Mask) 그 토큰을 맞추는 방식으로 학습을 진행한다. 
 
--NSP(Next Sentence Prediction) : 두 문장이 주어졌을 때, 두 문장의 순서를 예측하는 방식이다. 두 문장 간 관련이 고려되야 하는 NLI와 QA의 파인 튜닝을 위해 두 문장의 연관을 맞추는 학습을 진행한다.
+- NSP(Next Sentence Prediction) : 두 문장이 주어졌을 때, 두 문장의 순서를 예측하는 방식이다. 두 문장 간 관련이 고려되야 하는 NLI와 QA의 파인 튜닝을 위해 두 문장의 연관을 맞추는 학습을 진행한다.
 
 #### 3. Fine-tuning
 
-!<img src="https://github.com/GaeunB/ai-summary-web/assets/145184645/100973f4-d8ea-4ac3-bc8e-b014a0a45e56" width="50%" height="50%">
+<img src="https://github.com/GaeunB/ai-summary-web/assets/145184645/100973f4-d8ea-4ac3-bc8e-b014a0a45e56" width="50%" height="50%">
 
-Bert는 fine-tuning 단계에서 pre-training 과 거의 동일한 하이퍼파라미터를 사용한다. 각 NLP task마다 fine-tuning 후 Bert 모델을 transfer learning시켜 성능을 확인한다.
+- Bert는 fine-tuning 단계에서 pre-training 과 거의 동일한 하이퍼파라미터를 사용한다. 각 NLP task마다 fine-tuning 후 Bert 모델을 transfer learning시켜 성능을 확인한다.
 
-BERT 기반 QA 모델은 크게 두 가지 접근 방식을 사용한다. 
+- BERT 기반 QA 모델은 크게 두 가지 접근 방식을 사용한다. 
 1. 질문과 문맥을 함께 입력으로 받아 답변을 예측하는 방식
 2. 질문과 문맥을 각각 따로 입력으로 받아 각각에 대한 임베딩을 생성하고, 이를 다양한 방식으로 결합하여 답변을 예측하는 방식 
 본 프로젝트에서는 question과 reference를 동시에 input 으로 사용하여 extractive question answering 모델을 구성하였다.
-!<img src="https://github.com/GaeunB/ai-summary-web/assets/145184645/4f0335a4-1310-46ac-a5be-55c3609d5b05" width="50%" height="50%">
+<img src="https://github.com/GaeunB/ai-summary-web/assets/145184645/4f0335a4-1310-46ac-a5be-55c3609d5b05" width="50%" height="50%">
 
 <details><summary>참고문헌</summary>
 [1] 권세린, et al. "의료 관련 질의응답을 위한 BERT 기반 한국어 QA 모델." Proceedings of KIIT Conference. 2022. <br />
