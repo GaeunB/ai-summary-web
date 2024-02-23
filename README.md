@@ -128,7 +128,7 @@ BERT 모델은 사전 훈련 언어 모델로서, 특정 분야에 국한된 기
 
 ##### 1. Input 
 
-!<img src="https://github.com/GaeunB/ai-summary-web/assets/145184645/56f14403-b877-4de7-b0a3-5278a01910b0" width="50%" height="50%">
+!<img src="https://github.com/GaeunB/ai-summary-web/assets/145184645/91693bf7-370d-4773-a82f-0af683a4ccdf" width="50%" height="50%">
 
 Input은 Token Embedding + Segment Embedding + Position Embedding 3가지 임베딩을 결합한 방식으로 진행한다.
 -Token Embedding : Word Piece 임베딩 방식을 사용한다. Char 단위로 임베딩 후 등장 빈도에 따라 sub-word 로 구분한다.
@@ -145,7 +145,7 @@ Input은 Token Embedding + Segment Embedding + Position Embedding 3가지 임베
 
 #### 3. Fine-tuning
 
-![image](https://github.com/GaeunB/ai-summary-web/assets/145184645/100973f4-d8ea-4ac3-bc8e-b014a0a45e56){: width="100" height="100"}
+!<img src="https://github.com/GaeunB/ai-summary-web/assets/145184645/100973f4-d8ea-4ac3-bc8e-b014a0a45e56" width="50%" height="50%">
 
 Bert는 fine-tuning 단계에서 pre-training 과 거의 동일한 하이퍼파라미터를 사용한다. 각 NLP task마다 fine-tuning 후 Bert 모델을 transfer learning시켜 성능을 확인한다.
 
@@ -153,7 +153,7 @@ BERT 기반 QA 모델은 크게 두 가지 접근 방식을 사용한다.
 1. 질문과 문맥을 함께 입력으로 받아 답변을 예측하는 방식
 2. 질문과 문맥을 각각 따로 입력으로 받아 각각에 대한 임베딩을 생성하고, 이를 다양한 방식으로 결합하여 답변을 예측하는 방식 
 본 프로젝트에서는 question과 reference를 동시에 input 으로 사용하여 extractive question answering 모델을 구성하였다.
-![image](https://github.com/GaeunB/ai-summary-web/assets/145184645/4f0335a4-1310-46ac-a5be-55c3609d5b05)
+!<img src="https://github.com/GaeunB/ai-summary-web/assets/145184645/4f0335a4-1310-46ac-a5be-55c3609d5b05" width="50%" height="50%">
 
 <details><summary>참고문헌</summary>
 [1] 권세린, et al. "의료 관련 질의응답을 위한 BERT 기반 한국어 QA 모델." Proceedings of KIIT Conference. 2022. <br />
