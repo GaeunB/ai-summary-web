@@ -1,11 +1,9 @@
-# 📋  자소서 요약단
-<img src="https://github.com/GaeunB/read_/assets/115343409/482d9635-41c7-4505-938d-4d3f1be1c9c2" width="70" height="70"/>
-<br />
-
+# 👋안녕하세요, '자소서 요약단'입니다.
 **팀원**: 변가은, 김지환, 남경현, 이대헌, 이성민, 최민재<br />
 **팀노션페이지**: [Notion](https://jungle-crane-580.notion.site/27be448bebcb4ca39ac9182033d7a293?pvs=4)
 <br />
-(노션 이미지)
+<img src="https://github.com/GaeunB/read_/assets/115343409/8b8a19aa-bae9-473b-9875-37f65656e2c4" height="1200"/>
+
 
 ## 🔎 Table of Contents
 + About
@@ -19,17 +17,30 @@
 + Code_Architecture
 
 ## 📁 About
-**개요**: <br />
-인공지능~~~~<br />
+💡**주제**: 인공지능 활용 자기소개서 요약 페이지 <br />
 `#NLP` `#Text_Summarization` `#Question_Answering` `#Flask` <br />
+<aside>
+
+- **개요**  <br />
+	<img src="https://github.com/GaeunB/read_/assets/115343409/a0306374-660e-4f03-bb69-e2daa384bb56">
+
+    - 매 채용시 지원자는 동일한 질문을 제한된 글자 수 내에서 답변을 하고 있다.
+    - 신입사원 채용은 이력서보다 자기소개서를 중요하게 평가
+        - 경력이 없는 신입사원의 업무 수행능력은 비슷하기 때문에 지원자의 잠재력을 파악하기 위한 도구로 자기소개서가 큰 비중을 차지한다.
+
+	 ⇒‘**자소서 요약단**’은 기업 임원진을 대상으로 자기소개서의 내용을 요약하여 효과적으로 사용자에게 전달하고, 상호작용할 수 있는 인공지능 기반의 자기소개 요약 페이지를 제공한다.
+
+</aside>
 <br />
-**랜딩 페이지**
-<br />
+
+- **랜딩 페이지**
+
 ![랜딩페이지@3x height='200'](https://github.com/GaeunB/read_/assets/115343409/b701310c-9fda-4647-8f42-b9bd59d7c0c5)
 
-**시연 영상**
+- **시연 영상**
 <br />
 <br />
+
 ## 🚦 Main Fuctions
 - **General Summarization**: 자연어 처리 모델을 활용한 자기소개서 요약
 - **Keysentence Extraction**: 키워드 중심의 문장 추출
@@ -38,12 +49,11 @@
 ## 🔧 Architecture
 + **Frontend**: HTML, CSS, JS <br />
 + **Engine** : Pytorch <br /> 
-	+ Kobart, Textrankr, KorQuAD 
+	+ Kobart, Textrankr, Bert 
 + **Backend**: Flask <br />
 
 <br />전체 구조 및 작동 방식은 다음과 같다. 
 <br /> (다이어그램)
-
 ## 💾 Setting
 - **Install modules**
 ```bash
@@ -54,23 +64,30 @@ pip install -r requirements.txt
 flask run
 ```
 
-## Engine
+## ⚡ Engine
 #### ✅ General Summarization_kobart
 https://github.com/SKT-AI/KoBART <br /> 
-![image](https://github.com/Oneourbefore/ai-summary-web/assets/102707496/68021f7e-9981-4a97-9ae3-b3e6ff830132) <br /> 
-KoBART란 페이스북에서 공개한 BART모델을 SKT에서 40GB 이상의 한국어 텍스트로 사전 학습시킨 모델이다. <br /> 
-한국어 위키 백과 이외, 뉴스, 책, 모두의 말뭉치 v1.0(대화, 뉴스, ...), 청와대 국민청원 등의 다양한 데이터가 모델 학습에 사용되었다.<br /> 
+- BART(Bidirectional and Auto-Regressive Transformers)는 입력 텍스트 일부에 노이즈를 추가하여 이를 다시 원문으로 복구하는 autoencoder의 형태로 학습이 됩니다.<br /> 
+![image width=650 height=550](https://github.com/Oneourbefore/ai-summary-web/assets/102707496/68021f7e-9981-4a97-9ae3-b3e6ff830132)
+1. Bart는 Transformer의 기본 아키텍처인 Encoder-Decoder구조를 갖고 있다.
+2. 따라서 코드도 Encoder와 Decoder를 차례로 통과한다.
+3. Input data도 Encoder_input과 Decoder_input을 따로 준비해야한다.
+4. 어떻게 input을 넣어주냐에 따라 Task마다 학습/추론 방법이 갈린다.
+
+- 한국어 BART는 논문에서 사용된 Text Infilling 노이즈 함수를 사용하여 40GB 이상의 한국어 텍스트에 대해서 학습한 한국어 encoder-decoder 언어 모델입니다. <br /> 
+이를 통해 도출된 KoBART-base를 배포합니다. 
+한국어 위키 백과 이외, 뉴스, 책, 모두의 말뭉치 v1.0(대화, 뉴스, ...), 청와대 국민청원 등의 다양한 데이터가 모델 학습에 사용되었습니다.
+
+- KoBART란 페이스북에서 공개한 BART모델을 SKT에서 40GB이상의 한국어 텍스트로 사전 학습시킨 모델이다.<br /> 
 BART는 seq2seq 모델을 사전학습하기 위한 denoising autoencoder(DAE, 잡음제거 오토 인코더)로, 임의의 noising function으로 텍스트를 손상시킨 후 모델이 원본 텍스트를 재구축하는 방식으로 학습이 진행된다.<br /> 
-BART는 기존 BERT모델과 GPT를 합친 구조를 가지고 있는데, 이로 인해 BERT의 Bidirectional 특징과 GPT의 Auto-Regressive한 특징을 모두 가진다. 덕분에 BART는 기존 MLM모델들에 비해 다양한 분야에서 높은 활용성을 나타낸다.<br />
-Input data도 Encoder_input과 Decoder_input을 따로 준비해야하며,어떻게 input을 넣어주냐에 따라 Task마다 학습/추론 방법이 갈린다.<br />
-![image](https://github.com/GaeunB/ai-summary-web/assets/118701576/f2e5c8e6-cedc-4ccf-b9f2-90f6ccc25501) <br /> 
+BART는 기존 BERT모델과 GPT를 합친 구조를 가지고 있는데, 이로 인해 BERT의 Bidirectional 특징과 GPT의 Auto-Regressive한 특징을 모두 가진다. 덕분에 BART는 기존 MLM모델들에 비해 다양한 분야에서 높은 활용성을 나타낸다. 
+![image width=650 height=550](https://github.com/GaeunB/ai-summary-web/assets/118701576/f2e5c8e6-cedc-4ccf-b9f2-90f6ccc25501 ) <br /> 
 **Fig.1 Bart구조**<br /> 
-BART는 손상된 Text를 입력으로 받아 Bidirectional 모델로 encoding하고 정답 Text에 대한 likelihood를 autoregressive 모델로 decoding하여 계산한다. 
+- BART는 손상된 Text를 입력으로 받아 Bidirectional 모델로 encoding하고 정답 Text에 대한 likelihood를 autoregressive 모델로 decoding하여 계산한다. 
 BART에서는 다음과 같은 5가지 noising 기법이 존재한며, 이를 통해 손상된 Text를 얻는다.
-![image](https://github.com/GaeunB/ai-summary-web/assets/118701576/d4db2cc4-2686-40e3-b4dd-38312d0c3ff1) <br /> 
+![image width=650 height=550](https://github.com/GaeunB/ai-summary-web/assets/118701576/d4db2cc4-2686-40e3-b4dd-38312d0c3ff1) <br /> 
 **Fig.2 Noising기법**<br /> 
-BART는 자기회귀 디코더를 갖기 때문에, abstractive QA와 summarization과 같은 시퀀스 일반화(Sequence Generation) 태스크에 직접적으로 파인튜닝 될 수 있다. 이번 프로젝트에서는 이력서 요약 기능을 수행하기 위해 KoBART모델에 채용면접 데이터로 파인튜닝을 진행하였다.<br /> 
-(데이터셋: https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=realm&dataSetSn=71592) 
+- BART는 자기회귀 디코더를 갖기 때문에, abstractive QA와 summarization과 같은 시퀀스 일반화(Sequence Generation) 태스크에 직접적으로 파인튜닝 될 수 있다. 이번 프로젝트에서는 이력서 요약 기능을 수행하기 위해 KoBART모델에 채용면접 데이터로 파인튜닝을 진행하였다.(데이터셋: https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=&topMenu=&aihubDataSe=realm&dataSetSn=71592) 
 <br />
 
 <details><summary>참고문헌</summary>
@@ -102,7 +119,8 @@ PageRank 알고리즘은 수집된 인터넷 문서 각각을 그래프의 노�
 </details>
 
 
-#### ✅ Question Answering_KorQuAD (원리)
+#### ✅ Question Answering_Bert (원리)
+
 
 <br />
 <br />
@@ -237,7 +255,7 @@ def textrank_summarize(text: str, num_sentences: int, verbose: bool = True) -> s
 **✔️ `qa_model.py`**<br />
 - 질문에 대한 답변을 제공하는 모듈이다.<br />
 - 사용된 라이브러리:
-	- `simpletransformers`: 간편한 사용을 위한 트랜스포머 모델 래핑 라이브<br />
+	- `simpletransformers`: 간편한 사용을 위한 트랜스포머 모델 래핑 라이브러리<br />
 
 ```Python
 import simpletransformers
