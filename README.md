@@ -128,7 +128,7 @@ BERT 모델은 사전 훈련 언어 모델로서, 특정 분야에 국한된 기
 
 ##### 1. Input 
 
-![image](https://github.com/GaeunB/ai-summary-web/assets/145184645/fdf376d2-bda1-43b5-8341-f290b3a490c9){: width="100" height="100"}
+!<img src="https://github.com/GaeunB/ai-summary-web/assets/145184645/56f14403-b877-4de7-b0a3-5278a01910b0" width="50%" height="50%">
 
 Input은 Token Embedding + Segment Embedding + Position Embedding 3가지 임베딩을 결합한 방식으로 진행한다.
 -Token Embedding : Word Piece 임베딩 방식을 사용한다. Char 단위로 임베딩 후 등장 빈도에 따라 sub-word 로 구분한다.
